@@ -228,7 +228,7 @@ export class UsefulFunction {
         }
     }
     static removeIndicesFromArray(array,indices) {
-        let array = [...array];
+        array = [...array];
         let index;
         for (let i = indices.length-1; i >= 0; i--) {
             index = indices[i];
