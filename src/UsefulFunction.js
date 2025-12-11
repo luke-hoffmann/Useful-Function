@@ -227,7 +227,15 @@ export class UsefulFunction {
             array.push(element);
         }
     }
-
+    static removeIndicesFromArray(array,indices) {
+        let array = [...array];
+        let index;
+        for (let i = indices.length-1; i >= 0; i--) {
+            index = indices[i];
+            array.splice(index,1);
+        }
+        return array;
+    }
 
     
 }
