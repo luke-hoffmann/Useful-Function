@@ -1,5 +1,7 @@
 export class UsefulFunction {
-    static getIndexOfArrayMax(arrayOfNumbers) {
+    static getIndexOfArrayMax(arrayOfNumbers : number[]) : number {
+        if (!(Array.isArray(arrayOfNumbers))) throw Error("arrayOfNumbers is not an array");
+        if (arrayOfNumbers.length ==0) throw Error("arrayOfNumbers contains no elements")
         let indexOfMax = 0;
         let max = arrayOfNumbers[0];
         for (let i =0 ; i < arrayOfNumbers.length; i++) {
@@ -10,10 +12,10 @@ export class UsefulFunction {
                 indexOfMax = i;
             }
         }
-        if (indexOfMax == -1) return undefined;
         return indexOfMax;
     }
-    static isMixedUpArraysEqual(array1,array2){
+    static isMixedUpArraysEqual<T>(array1 : T[],array2 : T[]) : boolean{
+        if (array1.length !== array2.length) return false;
         array1 = [...array1];
         array2 = [...array2];
         for (let i=array1.length-1; i >=0 ;i--) {
@@ -26,7 +28,7 @@ export class UsefulFunction {
         }
         return (array1.length ==0 && array2.length ==0);
     }
-    static isThereValueGreaterThanN(array,n){
+    static isThereValueGreaterThanN(array : number[],n : number) : boolean{
         for (const value of array) {
             if (value > n) {
                 return true;
@@ -35,9 +37,9 @@ export class UsefulFunction {
         return false;
     }
     // source - chatgpt
-    static noDuplicates = (arr) => [...new Set(arr)];
+    static noDuplicates = <T,>(arr: T[]): T[] => [...new Set(arr)];
 
-    static combineArrays(arrayOfArrays){
+    static combineArrays<T>(arrayOfArrays : T[][]) : T[]{
         let outputArray = [];
         for (const array of arrayOfArrays) {
             for (const object of array) {
@@ -46,33 +48,34 @@ export class UsefulFunction {
         }
         return outputArray;
     }
-    static arrayOfIndices(n) {
+    static arrayOfIndices(n : number) : number[] {
         let array = [];
         for (let i =0 ; i < n; i ++) {
             array.push(i);
         }
         return array;
     }
-    static addToMap(map, key, value) {
+    static addToMap<T>(map : Map<T,T[]>, key : T, value : T) : Map<T,T[]>{
         if (!map.has(key)) {
           map.set(key, []); // Initialize with an empty array if key does not exist
         }
-        map.get(key).push(value); // Push new value into the array
+        const val = map.get(key)!.push(value); // Push new value into the array
         return map;
     }
-    static incrementMap(map,key){
+    static incrementMap<T>(map : Map<T,number>,key : T) : void{
         if (!map.has(key)) throw new Error("Supplied map is bad");
-        map.set(key,map.get(key)+1)
+        map.set(key,map.get(key)!+1)
     }
     
-    static isInArray(array,value) {
+    static isInArray<T>(array : T[],value : T) : boolean{
         for (let i =0; i < array.length;i++) {
             if (array[i] === value) return true;
         }
         return false;
     }
     
-    static getCounterClockwiseMove(hashGraph,currentNode) {
+    static getCounterClockwiseMove(hashGraph : Map<number,number>,currentNode : number) {
+        if (!hashGraph.has(currentNode)) throw Error("Key not found");
         let possibleNextMoves = [...hashGraph.get(currentNode)];
         if(possibleNextMoves.length == 1) {
             currentNode = possibleNextMoves[0];
