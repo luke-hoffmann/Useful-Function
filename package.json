@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/luke-hoffmann/UsefulFunction/issues"
   },
-  "homepage": "https://github.com/luke-hoffmann/UsefulFunction#readme"
+  "homepage": "https://github.com/luke-hoffmann/UsefulFunction#readme",
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
 }
