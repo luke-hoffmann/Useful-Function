@@ -226,10 +226,12 @@ export class UsefulFunction {
 
         return pathway;
     }
-    static addElementsToArray<T>(array : T[] ,elements : T[]){
+    static addNumbersToNumberArray(array : number[] ,elements : number[]) : number[]{
+        let newArray = [...array];
         for (const element of elements) {
-            array.push(element);
+            newArray.push(element);
         }
+        return newArray
     }
     static removeIndicesFromArray<T>(array : T[],indices : number[]) {
         array = [...array];
