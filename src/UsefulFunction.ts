@@ -226,13 +226,7 @@ export class UsefulFunction {
 
         return pathway;
     }
-    static addNumbersToNumberArray(array : number[] ,elements : number[]) : number[]{
-        let newArray = [...array];
-        for (const element of elements) {
-            newArray.push(element);
-        }
-        return newArray
-    }
+    
     static removeIndicesFromArray<T>(array : T[],indices : number[]) {
         array = [...array];
         let index;
