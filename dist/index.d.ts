@@ -21,9 +21,10 @@ declare class UsefulFunction {
     static elementWiseMultiplication(array1: number[], array2: number[]): number[];
     static randomP5Color(): string;
     static getNodesOnOutsideOfCounterClockwiseGraph(hashGraph: Map<number, number[]>, numberOfIterations: number): number[];
-    static addNumbersToNumberArray(array: number[], elements: number[]): number[];
     static removeIndicesFromArray<T>(array: T[], indices: number[]): T[];
     static clampNumber(number: number, bottomClamp: number, topClamp: number): number;
+    static assertBool(v: unknown, name: string): asserts v is boolean;
+    static assertNum(v: unknown, name: string): asserts v is number;
 }
 
 export { UsefulFunction };

@@ -241,5 +241,13 @@ export class UsefulFunction {
         number = number < bottomClamp ? bottomClamp : number;
         return number;
     }
-    
+    static assertBool(v: unknown, name: string): asserts v is boolean {
+        // written by chatgpt
+        if (typeof v !== "boolean") throw new TypeError(name);
+    }
+
+    static assertNum(v: unknown, name: string): asserts v is number {
+        // written by chatgpt
+        if (typeof v !== "number" || Number.isNaN(v)) throw new TypeError(name);
+    }
 }
